@@ -6,18 +6,13 @@ on:
     branches: [ master ]
 
 jobs:
-  install_dependencies:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Instalacion de Java y Ant
-      run: |
-        sudo apt install -y default-jdk ant
   test:
     runs-on: ubuntu-latest
     steps:
-    - name: Pruebas unitarias
+    - uses: actions/checkout@v2
+    - name: Pruebas unitarias con Ant
       run: |
+        sudo apt install -y default-jdk ant
         echo $SHELL
         echo $USER
         pwd
