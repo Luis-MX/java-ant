@@ -6,14 +6,19 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  install_dependencies:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Run a multi-line script
+    - name: Instalacion de Java y Ant
       run: |
-        echo $SHELL:pwd
-        echo $USER
-        ls -la
         sudo apt install -y default-jdk ant
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Pruebas unitarias
+      run: |
+        echo $SHELL
+        echo $USER
+        pwd
         ant test
