@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<project name="cifrado_con_esteganografia" default="run">
+    <target name="compile" >
+        <mkdir dir="build/classes"/>
+        <javac destdir="build/classes" includeantruntime="false">
+            <src path="src"/>
+        </javac>
+    </target>
+    <target name="run" depends="compile">
+        <java classname="Main" classpath="build/classes" fork="true"/>
+    </target>
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+    <target name="test">
+        <echo>Las pruebas van aqui</echo>
+    </target>
+</project>
